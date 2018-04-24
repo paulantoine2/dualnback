@@ -1,0 +1,31 @@
+<h1>Dual-N-back</h1>
+<table>
+  <tr>
+    <th></th>
+    <th>Correct</th>
+    <th>Wrong</th>
+    <th></th>
+  </tr>
+  <tr>
+    <th>Sound</th>
+    <td>{{ results.sound.correct }}</td>
+    <td>{{ results.sound.wrong }}</td>
+    <td>{{ results.sound.percentage }}%</td>
+  </tr>
+  <tr>
+    <th>Position</th>
+    <td>{{ results.position.correct }}</td>
+    <td>{{ results.position.wrong }}</td>
+    <td>{{ results.position.percentage }}%</td>
+  </tr>
+</table>
+<div id="score">
+  <div class="percentage">{{ results.score }}%</div>
+  <div class="message" *ngIf="results.score >= 80">Level up !</div>
+  <div class="message" *ngIf="results.score < 50">Level down ..</div>
+</div>
+
+<div class="match_buttons">
+  <button class="btn" routerLink="/play">PLAY</button>
+  <button class="btn" routerLink="/">HOME</button>
+</div>

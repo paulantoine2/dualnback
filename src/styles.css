@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Montserrat;
 }
 body {
   background-color: #09192A;
@@ -12,4 +13,102 @@ body {
   max-width: 360px;
   width: 100%;
   margin: 0 auto;
+}
+h1 {
+  font-size: 30px;
+  margin: 40px 0;
+  text-align: center;
+  font-weight: 200;
+}
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #4A90E2;
+  box-shadow: 0 0px 4px 0 #4A90E2;
+  border-radius: 10px;
+  background-color: transparent;
+  font-weight: 200;
+  font-size: 20px;
+  color: #4A90E2;
+  letter-spacing: 1px;
+  text-shadow: 0 0px 4px #4A90E2;
+  cursor: pointer;
+  position: relative;
+}
+.grid {
+  position: relative;
+}
+.counter {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+}
+.counter p{
+  /* 13 Remaining: */
+  font-family: Montserrat-SemiBold;
+  font-size: 14px;
+  color: #50E3C2;
+  letter-spacing: 0.7px;
+  text-align: left;
+  text-shadow: 0 2px 4px #50E3C2;
+  text-transform: uppercase;
+}
+.match_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.match_buttons .btn {
+  width: 45%;
+}
+.match_button.wrong {
+  color: gray;
+  border-color: gray;
+  text-shadow: 0 0px 4px gray;
+  box-shadow: 0 0px 4px 0 gray;
+}
+.match_button.correct {
+  color: #50E3C2;
+  border-color: #50E3C2;
+  text-shadow: 0 0px 4px #50E3C2;
+  box-shadow: 0 0px 4px 0 #50E3C2;
+}
+.btn:after {
+  content: '';
+  display: block;
+  border: solid 1px #50E3C2;
+  background-color: transparent;
+  position: absolute;
+  border-radius: 10px;
+  left: -1px;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  opacity: 0;
+}
+.match_button.correct:after {
+  animation: btnHalo 500ms ease forwards;
+}
+.match_button.wrong:after {
+  border-color: gray;
+  animation: btnWrongHalo 500ms ease forwards;
+}
+@keyframes btnHalo {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+@keyframes btnWrongHalo {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
 }

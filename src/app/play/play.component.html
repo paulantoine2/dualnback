@@ -1,0 +1,12 @@
+<div class="grid">
+  <div class="counter" >
+    <p>{{game_length - sequenceService.currentIndex}} Remaining</p>
+  </div>
+  <app-grid
+    [width]="game_width"
+    [height]="game_height"></app-grid>
+</div>
+<div class="match_buttons">
+  <button class="match_button btn" [ngClass]="button_state.sound" (click)="sequenceService.matchSoundGuess()">SOUND</button>
+  <button class="match_button btn" [ngClass]="button_state.position" (click)="sequenceService.matchPositionGuess()">POSITION</button>
+</div>

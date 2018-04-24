@@ -1,44 +1,6 @@
 <div class="site-wrapper">
-  <h1>Dual-{{n}}-back</h1>
-  <div>
-    <button class="btn" (click)="play()">START</button>
-    <button class="btn" (click)="sequenceService.stopSequence()">STOP</button>
-    <button class="btn" (click)="new()">NEW</button>
-  </div>
-  <div class="grid" [ngClass]="{ 'play': game_play }">
-    <div class="counter" >
-      <p>{{game_length - sequenceService.currentIndex}} Remaining</p>
-    </div>
-    <app-grid
-      [width]="game_width"
-      [height]="game_height"></app-grid>
-  </div>
-  <div class="match_buttons">
-    <button class="match_button btn" [ngClass]="button_state.sound" (click)="sequenceService.matchSoundGuess()">SOUND</button>
-    <button class="match_button btn" [ngClass]="button_state.position" (click)="sequenceService.matchPositionGuess()">POSITION</button>
-  </div>
-  <div>
-    <h3>Results</h3>
-    <table>
-      <tr>
-        <th></th>
-        <th>Correct</th>
-        <th>Wrong</th>
-        <th>Percentage</th>
-      </tr>
-      <tr>
-        <th>Sound</th>
-        <td>{{ results.sound.correct }}</td>
-        <td>{{ results.sound.wrong }}</td>
-        <td>{{ results.sound.percentage }}%</td>
-      </tr>
-      <tr>
-        <th>Position</th>
-        <td>{{ results.position.correct }}</td>
-        <td>{{ results.position.wrong }}</td>
-        <td>{{ results.position.percentage }}%</td>
-      </tr>
-    </table>
-    Score : {{ results.score }}%
-  </div>
+  <router-outlet></router-outlet>
+
+
+
 </div>
