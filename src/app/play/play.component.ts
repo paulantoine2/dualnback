@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Sequence } from '../models/sequence.model';
 import { SequenceService } from '../sequence.service';
 import { Router } from '@angular/router';
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-play',
@@ -10,11 +11,6 @@ import { Router } from '@angular/router';
 })
 export class PlayComponent {
 
-  game_width = 3;
-  game_height = 3;
-  game_interval = 3000;
-  n = 2;
-  game_length = 20 + this.n * this.n;
   match_sound_key = 'KeyS';
   match_position_key = 'KeyP';
   game_play = false;
@@ -23,7 +19,7 @@ export class PlayComponent {
     position: 'none'
   };
 
-  constructor(public sequenceService: SequenceService, private router: Router) {
+  constructor(public sequenceService: SequenceService, private router: Router, public gameService: GameService) {
     this.new();
     this.play();
     sequenceService.onPositionMatchGuess((match) => {
@@ -45,18 +41,18 @@ export class PlayComponent {
   }
   play() {
     this.game_play = true;
-    this.sequenceService.playSequence(this.game_interval);
+    this.sequenceService.playSequence(this.gameService.interval);
     window.addEventListener('keypress', this.keyPressEventListener.bind(this));
   }
   new() {
     this.sequenceService.initSequence(new Sequence(
-      this.game_width,
-      this.game_height,
-      this.game_length,
+      this.gameService.width,
+      this.gameService.height,
+      this.gameService.length,
       35,
       35,
       5,
-      this.n));
+      this.gameService.getN()));
   }
   keyPressEventListener(e) {
     switch (e.code) {

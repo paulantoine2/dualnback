@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { SequenceService } from '../sequence.service';
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-grid',
@@ -13,13 +14,13 @@ export class GridComponent implements OnInit, AfterViewInit {
   @ViewChild('container') container: ElementRef;
   squares: any[];
 
-  constructor(public sequenceService: SequenceService) {
+  constructor(public sequenceService: SequenceService, private gameService: GameService) {
     sequenceService.onNotePlayed((note) => {
       const position = note.y * this.width + note.x;
       this.squares[position].light = true;
       setTimeout(() => {
         this.squares[position].light = false;
-      }, 2000);
+      }, gameService.interval / 2);
     });
   }
 

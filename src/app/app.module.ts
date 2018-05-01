@@ -13,6 +13,7 @@ import { PlayComponent } from './play/play.component';
 import { ResultsComponent } from './results/results.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { RouterModule } from '@angular/router';
+import { GameService } from './game.service';
 
 
 @NgModule({
@@ -30,7 +31,10 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [SequenceService],
+  providers: [
+    SequenceService,
+    GameService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

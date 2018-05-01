@@ -92,6 +92,27 @@ h1 {
   border-color: gray;
   animation: btnWrongHalo 500ms ease forwards;
 }
+table {
+  width: 100%;
+  border: solid 1px #4A90E2;
+  box-shadow: 0 10px 40px 0 rgba(75, 146, 227, 0.51);
+}
+td, th {
+  padding: 10px;
+  text-align: left;
+  font-weight: 200;
+  text-shadow: 0 0px 4px #4A90E2;
+  text-transform: uppercase;
+}
+tr:first-child th {
+  text-align: center;
+}
+td {
+  text-align: center;
+  color: #50E3C2;
+  text-shadow: 0 0px 4px #50E3C2;
+}
+
 @keyframes btnHalo {
   0% {
     opacity: 1;

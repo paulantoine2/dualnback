@@ -2,3 +2,14 @@
 <div>
   <button class="btn" (click)="play()">START</button>
 </div>
+<table>
+  <tr>
+    <th>n</th>
+    <th>score</th>
+  </tr>
+  <tr *ngFor="let record of gameService.games_records">
+    <td>{{ record.n }}</td>
+    <td>{{ record.score }}%</td>
+  </tr>
+
+</table>
