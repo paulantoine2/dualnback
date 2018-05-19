@@ -1,15 +1,29 @@
 <h1>Dual-N-back</h1>
-<div>
+<div id="home_controls">
   <button class="btn" (click)="play()">START</button>
 </div>
-<table>
-  <tr>
-    <th>n</th>
-    <th>score</th>
-  </tr>
-  <tr *ngFor="let record of gameService.games_records">
-    <td>{{ record.n }}</td>
-    <td>{{ record.score }}%</td>
-  </tr>
-
-</table>
+<div class="widget">
+  <h2>Last games</h2>
+  <table>
+    <tr>
+      <th>n</th>
+      <th>score</th>
+    </tr>
+    <tr *ngFor="let record of gameService.games_records">
+      <td>{{ record.n }}</td>
+      <td>{{ record.score }}%</td>
+    </tr>
+  </table>
+</div>
+<div class="widget">
+  <h2>Daily stats</h2>
+  <div id="stats-chart">
+    <canvas baseChart width="400" height="400"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"></canvas>
+  </div>
+</div>

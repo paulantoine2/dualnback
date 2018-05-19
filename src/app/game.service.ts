@@ -21,7 +21,7 @@ export class GameService {
     this.width = parseInt(localStorage.getItem('game_width'), 10) || DEFAULT_WIDTH;
     this.height = parseInt(localStorage.getItem('game_height'), 10) || DEFAULT_HEIGHT;
     this.interval = parseInt(localStorage.getItem('game_interval'), 10) || DEFAULT_INTERVAL;
-    this.setLength(2);
+    this.setLength();
     this.days_records = JSON.parse(localStorage.getItem('days_records')) || [];
 
     const saved_date = localStorage.getItem('games_records_date');
@@ -37,7 +37,6 @@ export class GameService {
       localStorage.setItem('games_records_date', this.games_records_date.toString());
     }
     this.games_records = JSON.parse(localStorage.getItem('games_records')) || [];
-    console.log(this.games_records);
   }
 
   static sameDay(d1: Date, d2: Date) {

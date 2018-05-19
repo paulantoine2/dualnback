@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ChartsModule } from 'ng2-charts';
 import { NgModule } from '@angular/core';
 
 import { routes } from './app.routing';
@@ -29,7 +30,8 @@ import { GameService } from './game.service';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ChartsModule
   ],
   providers: [
     SequenceService,

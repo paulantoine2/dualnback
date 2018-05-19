@@ -1,0 +1,14 @@
+#stats-chart {
+  border: solid 1px #4A90E2;
+  padding: 20px 20px 10px 10px;
+}
+#home_controls {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.widget {
+  margin-bottom: 40px;
+}
+.widget h2 {
+  margin: 10px 0;
+}
